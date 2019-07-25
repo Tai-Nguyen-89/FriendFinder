@@ -68,6 +68,23 @@ var friends = [
     ]
 },
 
+{
+    name: "Other dude",
+    photo: "hyperlinkgoeshere:D",
+    scores: [
+        "4",
+        "5",
+        "1",
+        "1",
+        "2",
+        "5",
+        "2",
+        "3",
+        "1",
+        "4",
+    ]
+},
+
 // Hovering over module.exports and friends below shows what will be pushed.
 ]
 module.exports = friends;
