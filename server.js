@@ -28,8 +28,8 @@ app.use(express.json());
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-require("./routes/home")(app);
-require("./routes/survey")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/homeRoutes")(app);
 
 // =============================================================================
 // LISTENER
