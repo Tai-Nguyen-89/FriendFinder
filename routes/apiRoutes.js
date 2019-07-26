@@ -35,16 +35,17 @@ module.exports = function (app) {
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
 
-    var friendMatch = {
+    var bestMatch = {
       name: "",
       photo: "",
-      friendDifference: 500
+      friendDifference: 1000
     };
 
     console.log(req.body);
 
     var userData = req.body;
     var userNumbers = userData.scores;
+    console.log(userScores);
     var compare = 0;
 
     //Nested forLoop through friends in friends.js list
@@ -54,12 +55,12 @@ module.exports = function (app) {
       // Loop through the answer comparisons. User answer gets replaced into h.
       for (var h = 0; h < friends[i].scores[h]; h++) {
 
-        compare += Math.abs[parseInt(userNumbers[h]) - parseInt(friends[i].scores[j])];
+        compare += Math.abs[parseInt(userNumbers[h]) - parseInt(friends[i].scores[h])];
 
         if (compare == bestMatch.friendDifference) {
           bestMatch.name = friends[i].name;
           bestMatch.photo = friends[i].photo;
-          bestMMatch.friendDifference = compare;
+          bestMatch.friendDifference = compare;
         }
       }
     }

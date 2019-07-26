@@ -2,7 +2,7 @@ var friends = [
 
 {
     name: "Mr. X",
-    photo: "hyperlinkgoeshere:D",
+    photo: "https://secure.i.telegraph.co.uk/multimedia/archive/03597/POTD_chick_3597497k.jpg",
     scores: [
         "3",
         "2",
@@ -19,7 +19,7 @@ var friends = [
 
 {
     name: "Mrs. Z",
-    photo: "hyperlinkgoeshere:D",
+    photo: "http://www.fuzzfeed.com/wp-content/uploads/2017/03/71bc7f666bb38ca40ffdd49005cd4b73.jpeg",
     scores: [
         "4",
         "3",
@@ -36,7 +36,7 @@ var friends = [
 
 {
     name: "Agent J",
-    photo: "hyperlinkgoeshere:D",
+    photo: "http://www.fuzzfeed.com/wp-content/uploads/2017/03/springfox.jpeg",
     scores: [
         "2",
         "4",
@@ -53,7 +53,7 @@ var friends = [
 
 {
     name: "Kar Kar Clinks",
-    photo: "hyperlinkgoeshere:D",
+    photo: "http://www.fuzzfeed.com/wp-content/uploads/2017/03/springsquirel.jpeg",
     scores: [
         "2",
         "1",
@@ -70,7 +70,7 @@ var friends = [
 
 {
     name: "Other dude",
-    photo: "hyperlinkgoeshere:D",
+    photo: "https://secure.i.telegraph.co.uk/multimedia/archive/01857/mouse-daffodil_1857432i.jpg",
     scores: [
         "4",
         "5",
