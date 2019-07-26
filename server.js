@@ -12,16 +12,26 @@ var express = require("express");
 // This sets up the basic properties for our express server
 // ==============================================================================
 
+var path = require("path");
+
 // Tells node that we are creating an "express" server
 var app = express();
+
+// var bodyParser = require("body-parser");
 
 // Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8080;
 console.log("localhost:8080")
 
+// var jsonParser = bodyParser.json()
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// app.use(bodyParser.json[{ type: "application/++json"}])
+// app.use(bodyParser.raw[{ type: "application/vnd.custom-type"}])
+// app.use(bodyParser.text[{ type: "text/html"}])
 
 // ================================================================================
 // ROUTER

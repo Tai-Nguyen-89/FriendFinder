@@ -45,7 +45,7 @@ module.exports = function (app) {
 
     var userData = req.body;
     var userNumbers = userData.scores;
-    console.log(userScores);
+    console.log(userNumbers);
     var compare = 0;
 
     //Nested forLoop through friends in friends.js list
@@ -55,7 +55,7 @@ module.exports = function (app) {
       // Loop through the answer comparisons. User answer gets replaced into h.
       for (var h = 0; h < friends[i].scores[h]; h++) {
 
-        compare += Math.abs[parseInt(userNumbers[h]) - parseInt(friends[i].scores[h])];
+        compare == Math.abs[parseInt(userNumbers[h]) - parseInt(friends[i].scores[h])];
 
         if (compare == bestMatch.friendDifference) {
           bestMatch.name = friends[i].name;
