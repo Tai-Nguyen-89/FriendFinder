@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    
+
 </head>
 
 <body>
@@ -19,11 +23,11 @@
             <h1 class="text-center">Survey Questions!</h1>
             <div><b>About you</b></div>
             <br>
-            <div>Name: <input type="text" id="name" placeholder="Name"></div>
-            <div>Photo Link: <input type="text" id="photo" placeholder="URL Link"></div>
+            <div>Name: <input type="text" id="name" placeholder="Name" class="form-control"></div>
+            <div>Photo Link: <input type="text" id="photo" placeholder="URL Link" class="form-control"></div>
             <br>
             <div>Question 1. Pick a color.</div>
-            <select name="Question1" id="Q1">
+            <select name="Question1" id="Q1" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -31,7 +35,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 2. Pick a topping.</div>
-            <select name="Question2" id="Q2">
+            <select name="Question2" id="Q2" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -39,7 +43,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 3. Blah</div>
-            <select name="Question3" id="Q3">
+            <select name="Question3" id="Q3" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -47,7 +51,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 4. Blah Blah</div>
-            <select name="Question4" id="Q4">
+            <select name="Question4" id="Q4" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -55,7 +59,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 5. Blah Blah</div>
-            <select name="Question5" id="Q5">
+            <select name="Question5" id="Q5" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -63,7 +67,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 6. Blah</div>
-            <select name="Question6" id="Q6">
+            <select name="Question6" id="Q6" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -71,7 +75,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 7. Blah</div>
-            <select name="Question7" id="Q7">
+            <select name="Question7" id="Q7" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -79,7 +83,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 8. Blah</div>
-            <select name="Question8" id="Q8">
+            <select name="Question8" id="Q8" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -87,7 +91,7 @@
                 <option value="5">!</option>
             </select>
             <div>Question 9. Blah</div>
-            <select name="Question9" id="Q9">
+            <select name="Question9" id="Q9" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
@@ -95,19 +99,101 @@
                 <option value="5">!</option>
             </select>
             <div>Question 10. Blah</div>
-            <select name="Question10" id="Q10">
+            <select name="Question10" id="Q10" class="chosen-select">
                 <option value="1">B</option>
                 <option value="2">l</option>
                 <option value="3">a</option>
                 <option value="4">h</option>
                 <option value="5">!</option>
             </select>
-<!-- 
+
+            <div class="text-center">
+                <a href=""><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"
+                            id="submit"></span> Submit</button></a>
+            </div>
+
+            <div class="modal" tabindex="-1" role="dialog" id="resultModal">
+
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Best Match</b></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Modal body text goes here.</p>
+                            <h2 id="matchName"></h2>
+                            <img src="https://secure.i.telegraph.co.uk/multimedia/archive/03597/POTD_chick_3597497k.jpg" alt="" id="matchImg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 
     Change directory to match user with friend match.
  -->
-            <div class="text-center">
-                    <a href="../routes/apiRoutes"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> Submit</button></a>
-                </div>
+            <script type="text/javascript">
+
+                $("#submit").on("click", function () {
+                    function validateForm() {
+                        var isValid = true;
+                        $(".form-control").each(function () {
+                            if ($(this).val() === "") {
+                                isValid = false;
+                            }
+                        });
+
+                        $(".chosen-select").each(function () {
+                            if ($(this).val() === "") {
+                                isValid = false;
+                            }
+                        });
+                        return isValid;
+                    }
+
+
+                    if (validateForm()) {
+                        var userData = {
+                            name: $("#name").val(),
+                            photo: $("#photo").val(),
+                            scores: [
+                                $("#Q1").val(),
+                                $("#Q2").val(),
+                                $("#Q3").val(),
+                                $("#Q4").val(),
+                                $("#Q5").val(),
+                                $("#Q6").val(),
+                                $("#Q7").val(),
+                                $("#Q8").val(),
+                                $("#Q9").val(),
+                                $("#Q10").val()
+                            ]
+                        };
+
+                        var currentURL = window.location.origin;
+
+                        $.post(currentURL + "/api/friends", userData, function (data) {
+                            $("#matchName").text(data.name);
+                            $("#matchImg").attr("src", data.photo);
+
+                            $("#resultsModal").modal("toggle");
+                            alert("working");
+                        })
+                    }
+                    else {
+                        alert("Please fill out all fields before submitting!");
+                    }
+                    return false;
+                })
+
+            </script>
+
+
+<!-- <script src="jquery-3.4.1.min.js"></script> -->
 
         </div>
 
